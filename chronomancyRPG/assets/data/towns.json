@@ -1,0 +1,9 @@
+{
+  "Matlocke": {
+    "name": "Matlocke",
+    "description": "A large, rustic town at the center of Osmon. It serves as the capital of human territory, and according to some, is the capital of the entire world. It is ruled by Lord Filmore in Filmore Manor at the center of town. Matlocke is populated primarily by humans. Other races do pass by from time to time, but are often disinclined from coming by Lord Filmore's stance against them",
+    "faction": "Human",
+    "primaryColor": "#8A4C08",
+    "hoverColor": "#5c4033"
+  }
+}

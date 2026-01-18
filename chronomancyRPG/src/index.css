@@ -1,0 +1,23 @@
+/*Default css */
+
+@font-face {
+  font-family: "Oswald";
+  src: url("../assets/fonts/oswaldFont/Oswald-VariableFont_wght.ttf");
+}
+
+* {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+:root, html, body {
+  font-family: "Oswald";
+  /*font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;*/
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;
+}
