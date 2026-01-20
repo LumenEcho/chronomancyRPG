@@ -1,6 +1,8 @@
 :root {
-    --primary-town-color: #8A4C08;
-    --hover-town-color: #5c4033;
+    /*--primary-town-color: #8A4C08;
+    --hover-town-color: #5c4033;*/
+    --primary-town-color: gold;
+    --hover-town-color: blue;
 }
 
 body {

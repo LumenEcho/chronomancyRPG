@@ -1,0 +1,12 @@
+{
+    "Traveler's Garb": {
+        "name": "Traveler's Garb",
+        "physicalDefense": 3,
+        "fireDefense": 1,
+        "coldDefense": 1,
+        "energyDefense": 1,
+        "psychicDefense": 1,
+        "oureanDefense": 1,
+        "price": 30
+    }
+}

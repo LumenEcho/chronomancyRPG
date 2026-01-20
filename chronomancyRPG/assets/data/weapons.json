@@ -1,0 +1,11 @@
+{
+    "Iron Sword": {
+        "name": "Iron Sword",
+        "melee": true,
+        "damageType": "Physical",
+        "baseDamage": 10,
+        "range": 5,
+        "break": 2,
+        "price": 30
+    }
+}
