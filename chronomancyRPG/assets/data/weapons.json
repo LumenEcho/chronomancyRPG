@@ -6,6 +6,8 @@
         "baseDamage": 10,
         "range": 5,
         "break": 2,
+        "critChance": 10,
+        "critDamage": 1.5,
         "price": 30
     }
 }

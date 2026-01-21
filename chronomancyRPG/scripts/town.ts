@@ -10,7 +10,9 @@ let playerGold: number = functions.getStorageNum("Gold");
 let currentHour: number = functions.getStorageNum("Hour");
 let townData: Record<string, town> = townJSONData;
 let currentTown: town = townData[playerLocation];
-let playerParty: entities.playerCharacter[] = [];
+let playerParty: entities.playerCharacter[] = functions.getJSONStorageString("Party");
+console.log(playerParty); //debugging
+let partySyncLocation: string = functions.getStorageString("Sync");
 
 //DOM elements
 let townBannerElement: HTMLElement = document.getElementById("townNameBanner");
@@ -22,6 +24,14 @@ let restBox: HTMLElement = document.getElementById("restBox");
 let syncBox: HTMLElement = document.getElementById("syncBox");
 let infoBox: HTMLElement = document.getElementById("infoBox");
 let mapBox: HTMLElement = document.getElementById("mapBox");
+
+let infoModal: HTMLDialogElement = document.getElementById("infoModal") as HTMLDialogElement;
+let infoModalCloseButton: HTMLElement = document.getElementById("infoCloseButton");
+let infoTownTitle: HTMLElement = document.getElementById("infoTownTitle");
+let infoTownImage: HTMLImageElement = document.getElementById("infoTownImage") as HTMLImageElement;
+let infoTownDescription: HTMLElement = document.getElementById("infoTownDescription");
+
+let statusModal: HTMLDialogElement = document.getElementById("statusModal") as HTMLDialogElement;
 
 //Button event listeners
 exploreBox.addEventListener("click", (e) => {
@@ -45,6 +55,7 @@ restBox.addEventListener("click", (e) => {
             playerParty[i].currentHealth = playerParty[i].maxHealth;
             playerParty[i].currentEnergy = playerParty[i].maxEnergy;
         }
+        functions.updateJSONStorageString("Party", playerParty);
         alert("Your party's health and energy have been restored");
     }
     else {
@@ -53,12 +64,26 @@ restBox.addEventListener("click", (e) => {
 
 })
 
+//Syncs to the statue in the town
 syncBox.addEventListener("click", (e) => {
-
+    partySyncLocation = functions.updateStorageString("Sync", currentTown.name);
+    alert(`You have synced to the statue at ${currentTown.name}. You will now start the next day here`);
 })
 
+//Opens the town info modal
 infoBox.addEventListener("click", (e) => {
+    infoTownTitle.textContent = currentTown.name;
+    infoModal.style.backgroundImage = "url(" + getTownInfoIcon(currentTown.name) + ")";
+    infoTownDescription.textContent = currentTown.description;
 
+    infoModal.style.display = "flex";
+    infoModal.showModal();
+})
+
+//Closes the info modal
+infoModalCloseButton.addEventListener("click", (e) => {
+    infoModal.style.display = "none";
+    infoModal.close();
 })
 
 mapBox.addEventListener("click", (e) => {
@@ -80,11 +105,13 @@ interface town {
 //Does setup for the current town
 setTown(currentTown);
 
+let newCritter = new entities.Entity("Bandit");
 
 
 
 
 
+//Functions:
 
 //Sets everything up for whatever specific town the user is in
 function setTown(currentTown: town): void {
@@ -99,6 +126,19 @@ function setTown(currentTown: town): void {
         case "Matlocke":
 
     }*/
+}
+
+//Takes the name of a town and retrieves its info dialog icon
+function getTownInfoIcon(townName: string): string {
+    let relativePathStarter = "../assets/townIcons/";
+    let finishPath = "";
+    switch(townName) {
+        case "Matlocke":
+            finishPath = "matlockeIcon.png";
+            break;
+    }
+
+    return (relativePathStarter + finishPath);
 }
 
 //TODO functions

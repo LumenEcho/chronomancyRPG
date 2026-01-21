@@ -1,14 +1,78 @@
 {
     "Festus": {
-
+        "name": "Festus",
+        "health": 20,
+        "energy": 10,
+        "breakpoints": 6,
+        "speed": 7,
+        "physicalDefense": 2,
+        "fireDefense": 1,
+        "coldDefense": 1,
+        "psychicDefense": 1,
+        "energyDefense": 1,
+        "oureanDefense": 1,
+        "blockChance": 20,
+        "dodgeChance": 10,
+        "skills": [],
+        "species": "Human",
+        "armorName": "Traveler's Garb",
+        "weaponName": "Iron Sword"
     },
     "Jon": {
-
+        "name": "Jon",
+        "health": 25,
+        "energy": 10,
+        "breakpoints": 6,
+        "speed": 4,
+        "physicalDefense": 3,
+        "fireDefense": -1,
+        "coldDefense": 2,
+        "psychicDefense": 2,
+        "energyDefense": 0,
+        "oureanDefense": 0,
+        "blockChance": 20,
+        "dodgeChance": 10,
+        "skills": [],
+        "species": "Treant",
+        "armorName": "Traveler's Garb",
+        "weaponName": "Iron Sword"
     },
     "Ohtar": {
-
+        "name": "Ohtar",
+        "health": 15,
+        "energy": 15,
+        "breakpoints": 5,
+        "speed": 6,
+        "physicalDefense": 2,
+        "fireDefense": 1,
+        "coldDefense": 1,
+        "psychicDefense": 1,
+        "energyDefense": 1,
+        "oureanDefense": 1,
+        "blockChance": 15,
+        "dodgeChance": 15,
+        "skills": [],
+        "species": "Elf",
+        "armorName": "Traveler's Garb",
+        "weaponName": "Iron Sword"
     },
     "Vincenzo": {
-
+        "name": "Vincenzo",
+        "health": 25,
+        "energy": 8,
+        "breakpoints": 8,
+        "speed": 3,
+        "physicalDefense": 4,
+        "fireDefense": 2,
+        "coldDefense": 2,
+        "psychicDefense": 2,
+        "energyDefense": 2,
+        "oureanDefense": 1,
+        "blockChance": 40,
+        "dodgeChance": 5,
+        "skills": [],
+        "species": "Dwarf",
+        "armorName": "Traveler's Garb",
+        "weaponName": "Iron Sword"
     }
 }

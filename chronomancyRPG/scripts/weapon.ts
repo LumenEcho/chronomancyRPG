@@ -11,6 +11,8 @@ export class Weapon {
         this.baseDamage = currentWeapon.baseDamage;
         this.range = currentWeapon.range;
         this.break = currentWeapon.break;
+        this.critChance = currentWeapon.critChance;
+        this.critDamage = currentWeapon.critDamage;
         this.price = currentWeapon.price;
     }
 
@@ -20,6 +22,8 @@ export class Weapon {
     baseDamage: number;
     range: number;
     break: number;
+    critChance: number;
+    critDamage: number;
     price: number;
 }
 
@@ -30,6 +34,8 @@ interface weaponInterface {
     baseDamage: number;
     range: number;
     break: number;
+    critChance: number;
+    critDamage: number
     //0 if unpurchasable
     price: number;
 }
