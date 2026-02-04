@@ -2,6 +2,7 @@
 import townJSONData from "../assets/data/towns.json"
 import * as entities from "./entities";
 import * as functions from "./functions";
+import { Quest } from "./quest";
 
 //Variables
 let playerLocation: string = functions.getStorageString("Location");
@@ -24,14 +25,24 @@ let restBox: HTMLElement = document.getElementById("restBox");
 let syncBox: HTMLElement = document.getElementById("syncBox");
 let infoBox: HTMLElement = document.getElementById("infoBox");
 let mapBox: HTMLElement = document.getElementById("mapBox");
+let statusBox: HTMLElement = document.getElementById("statusBox");
 
 let infoModal: HTMLDialogElement = document.getElementById("infoModal") as HTMLDialogElement;
 let infoModalCloseButton: HTMLElement = document.getElementById("infoCloseButton");
 let infoTownTitle: HTMLElement = document.getElementById("infoTownTitle");
-let infoTownImage: HTMLImageElement = document.getElementById("infoTownImage") as HTMLImageElement;
 let infoTownDescription: HTMLElement = document.getElementById("infoTownDescription");
 
 let statusModal: HTMLDialogElement = document.getElementById("statusModal") as HTMLDialogElement;
+let partyButton: HTMLElement = document.getElementById("partyButton");
+let questLogButton: HTMLElement = document.getElementById("questLogButton");
+let inventoryButton: HTMLElement = document.getElementById("inventoryButton");
+let reputationsButton: HTMLElement = document.getElementById("reputationsButton");
+let statusMiddleDiv: HTMLElement = document.getElementById("statusMiddleDiv");
+let statusCloseButton: HTMLElement = document.getElementById("statusCloseButton");
+
+let worldMapModal: HTMLDialogElement = document.getElementById("worldMapModal") as HTMLDialogElement;
+let worldMapCloseButton: HTMLElement = document.getElementById("mapCloseButton");
+
 
 //Button event listeners
 exploreBox.addEventListener("click", (e) => {
@@ -87,7 +98,23 @@ infoModalCloseButton.addEventListener("click", (e) => {
 })
 
 mapBox.addEventListener("click", (e) => {
+    worldMapModal.style.display = "flex";
+    worldMapModal.showModal();
+})
 
+worldMapCloseButton.addEventListener("click", (e) => {
+    worldMapModal.style.display = "none";
+    worldMapModal.close();
+})
+
+statusBox.addEventListener("click", (e) => {
+    statusModal.style.display = "flex";
+    statusModal.showModal();
+})
+
+statusCloseButton.addEventListener("click", (e) => {
+    statusModal.style.display = "none";
+    statusModal.close();
 })
 
 

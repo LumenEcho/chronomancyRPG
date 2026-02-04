@@ -3,12 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <title>Chronomancy</title>
-    <link rel="stylesheet" href="../stylesheets/">
+    <link rel="stylesheet" href="../stylesheets/battle.css">
   </head>
   <body>
-    
+    <div id="battleScene">
+      <div id="skybox">
+        <div id="turnIdentifier"></div>
+      </div>
+      <div id="battleRow">
+        <div class="battleColumn">
+          <div class="battleBox playerBox" id="playerBox1"></div>
+          <div class="battleBox playerBox" id="playerBox2"></div>
+        </div>
+        <div class="battleColumn">
+          <div class="battleBox playerBox" id="playerBox3"></div>
+          <div class="battleBox playerBox" id="playerBox4"></div>
+        </div>
+        <div class="battleColumnSingle">
+          <div class="battleBox playerBox" id="playerBox5"></div>
+        </div>
 
+        <div class="fillerDiv"></div>
+
+        <div class="battleColumnSingle">
+          <div class="battleBox enemyBox" id="enemyBox1"></div>
+        </div>
+        <div class="battleColumn">
+          <div class="battleBox enemyBox" id="enemyBox2"></div>
+          <div class="battleBox enemyBox" id="enemyBox3"></div>
+        </div>
+        <div class="battleColumn">
+          <div class="battleBox enemyBox" id="enemyBox4"></div>
+          <div class="battleBox enemyBox" id="enemyBox5"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="battleMenu">
+      <div class="actionBox" id="attackBox">Attack</div>
+      <div class="actionBox" id="guardBox">Guard</div>
+      <div class="actionBox" id="treancyBox">Treancy</div>
+      <div class="actionBox" id="chronomancyBox">Chronomancy</div>
+      <div class="actionBox" id="skillsBox">Skills</div>
+      <div class="actionBox" id="itemsBox">Items</div>
+      <div class="actionBox" id="fleeBox">Flee</div>
+    </div>
     <script type="module" src="/src/renderer.ts"></script>
-    <script src=""></script>
+    <script type="module" src="../scripts/battle.ts"></script>
   </body>
 </html>

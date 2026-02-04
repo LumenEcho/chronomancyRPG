@@ -1,6 +1,9 @@
 :root {
     --primary-town-color: gold;
     --hover-town-color: blue;
+    --status-primary-color: ;
+    --status-background-color: #5e5440;
+    --status-hover-color: #332c22;
 }
 
 body {
@@ -59,11 +62,14 @@ body {
     font-weight: 500;
 }
 
+dialog {
+    display: none;
+}
+
 #infoModal {
     height: 80vh;
     width: 80vw;
     border: 1px solid var(--primary-town-color);
-    display: none;
     flex-direction: column;
     background-size: 100% 100%;
 }
@@ -116,3 +122,83 @@ dialog::backdrop {
     background-color: black;
     opacity: .8;
 }
+
+#statusModal {
+    height: 80vh;
+    width: 80vw;
+    background-color: var(--status-background-color);
+    display: none;
+    flex-direction: column;
+    padding: 0px;
+}
+
+#statusTopBarContainer {
+    height: 10%;
+    max-height: 10%;
+    width: 100%;
+    display: flex;
+}
+
+.statusTopBarButton {
+    font-size: 1.5rem;
+    background-color: var(--status-primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    flex: 1;
+}
+
+.statusTopBarButton:hover, #statusCloseButton:hover {
+    font-weight: 500;
+    background-color: var(--status-hover-color);
+}
+
+#statusCloseButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+#statusCloseButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: var(--status-primary-color);
+    height: 50%;
+    width: 5%;
+    margin: 1%;
+}
+
+#statusMiddleDiv {
+    flex: 1;
+}
+
+#worldMapModal {
+    height: 100vh;
+    width: 100vw;
+    border: none;
+    padding: 0px;
+}
+
+#worldMapImage {
+    height: 100%;
+    width: 100%;
+}
+
+#mapCloseButton {
+    position: absolute;
+    right: 2%;
+    bottom: 2%;
+    background-color: var(--status-background-color);
+    padding: 2px;
+    background-color: darkgray;
+}
+
+#mapCloseButton:hover {
+    font-weight: 500;
+    background-color: gray;
+}
+

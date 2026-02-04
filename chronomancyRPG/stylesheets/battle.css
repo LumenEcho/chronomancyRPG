@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#battleScene {
+    display: flex;
+    height: 90%;
+    width: 100%;
+    background-size: 100% 100%;
+    flex-direction: column;
+}
+
+#skybox {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#battleRow {
+    display: flex;
+    flex-direction: row;
+    height: 40%;
+    width: 100%;
+}
+
+.battleColumn, .battleColumnSingle, .fillerDiv {
+    flex: 1;
+}
+
+.battleColumn, .battleColumnSingle {
+    display: flex;
+    flex-direction: column;
+}
+
+.battleColumnSingle {
+    justify-content: center;
+    align-items: center;
+}
+
+.battleBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    background-size: 100% 100%;
+}
+
+#battleMenu {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    background-color: dimgray;
+}
+
+.actionBox {
+    flex: 1;
+    height: 80%;
+    width: 100%;
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+}
+
+.actionBox:hover {
+    font-weight: 500;
+    background-color: gray;
+}
+
+#treancyBox, #chronomancyBox {
+    display: none;
+}
+
+#turnIdentifier {
+    position: absolute;
+    top: 2%;
+    height: 5%;
+    width: 80%;
+    background-color: dimgray;
+    opacity: .9;
+    border: 1px solid black;
+    border-radius: 15px;
+}

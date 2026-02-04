@@ -18,6 +18,8 @@
             <div class="townBox" id="syncBox">Sync</div>
             <div class="townBox" id="infoBox">Town Info</div>
             <div class="townBox" id="mapBox">World Map</div>
+            <div class="townBox" id="statusBox">Status</div>
+            <a class="townBox" href="battle.html">Battle (DEV)</a>
         </div>
     </div>
 
@@ -28,7 +30,24 @@
         <div id="infoCloseButton">CLOSE</div>
       </div>
     </dialog>
-    <dialog id="statusModal"></dialog>
+
+    <dialog id="statusModal">
+      <div id="statusTopBarContainer">
+        <div class="statusTopBarButton" id="partyButton">Party</div>
+        <div class="statusTopBarButton" id="questLogButton">Quest Log</div>
+        <div class="statusTopBarButton" id="inventoryButton">Inventory</div>
+        <div class="statusTopBarButton" id="reputationsButton">Reputations</div>
+      </div>
+      <div id="statusMiddleDiv"></div>
+      <div id="statusCloseButtonDiv">
+        <div id="statusCloseButton">Close</div>
+      </div>
+    </dialog>
+
+    <dialog id="worldMapModal">
+      <img id="worldMapImage" src="../assets/osmonLabeledMap.png" alt="World Map">
+      <div id="mapCloseButton">Close</div>
+    </dialog>
     <script type="module" src="/src/renderer.ts"></script>
     <script type="module" src="../scripts/town.ts"></script>
   </body>
