@@ -83,84 +83,46 @@ for (let i = 0; i < enemyParty.length; i++) {
     enemyBoxes[i].style.backgroundImage = "url(../assets/sprites/" + enemyParty[i].name + "/battlePose.png)";
 }
 
-//Assigns turn order
+//Assigns Turn Orders
 for (let i = 0; i < (party.length + enemyParty.length); i++) {
-    //If checking a player party member
+    //If current entity is in the party by index
     if (i < party.length) {
-        //First speed
-        if (i === 0) {
-            speedsArray.push(party[i].speed);
-            turnOrderArray.push(i);
-            console.log(turnOrderArray);
+        //If there is no one in the speed arrays, push to the arrays
+        if (turnOrderArray.length === 0) {
+            turnOrderArray.splice(0, 0, i);
+            speedsArray.splice(0, 0, party[i].speed)
         }
+        //If this is not the first element, compare to each other element
         else {
-            //If speed is higher than the first speed
-            if (party[i].speed > speedsArray[0]) {
-                //Move over all elements and insert new speed first
-                for (let j = speedsArray.length + 1; j > 0; j--) {
-                    speedsArray[j] = speedsArray[j - 1];
-                    turnOrderArray[j] = turnOrderArray[j - 1];
+            //Iterate through every speed already in the array and compare
+            for (let j = 0; j < speedsArray.length; j++) {
+                //If the current member's speed is higher than the currently accessed speed, splice it in
+                if (party[i].speed >= speedsArray[j]) {
+                    turnOrderArray.splice(j, 0, i);
+                    speedsArray.splice(j, 0, party[i].speed);
+                    break;
                 }
-                //Assign new speed and index to the first index of the arrays
-                speedsArray[0] = party[i].speed;
-                turnOrderArray[0] = i;
             }
-            //If speed is not greater than the first element
-            else {
-                //Check if the speed is higher then any speed in the array
-                for (let j = 0; j < speedsArray.length; j++) {
-                    //If speed is higher than another speed, move over all the following elements and insert the new speed and index
-                    if (party[i].speed > speedsArray[j]) {
-                        for (let m = speedsArray.length + 1; m > j; m--) {
-                            speedsArray[m] = speedsArray[m - 1];
-                            turnOrderArray[m] = turnOrderArray[m - 1];
-                        }
-                        speedsArray[j] = party[i].speed;
-                        turnOrderArray[j] = i;
-                    }
-                    else {
-                        //If the speed isn't higher than any speed, insert it at the end of the arrays
-                        speedsArray.push(party[i].speed);
-                        turnOrderArray.push(i);
-                    }
-                }
+            //Compares i to the current length of speeds array to see if a value was added. If not, push to the end
+            if (speedsArray.length === i) {
+                turnOrderArray.push(i);
+                speedsArray.push(party[i].speed);
             }
         }
     }
-    //Does the same thing for the enemies
+    //If current entity is in the enemy party by index
+    //Does the same logic as above, but doesn't have or need the first element check
     else {
-        //If speed is higher than the first speed
-        if (enemyParty[i - party.length].speed > speedsArray[0]) {
-            //Move over all elements and insert new speed first
-            for (let j = speedsArray.length + 1; j > 0; j--) {
-                speedsArray[j] = speedsArray[j - 1];
-                turnOrderArray[j] = turnOrderArray[j - 1];
+        for (let j = 0; j < speedsArray.length; j++) {
+            if (enemyParty[i].speed >= speedsArray[i]) {
+                turnOrderArray.splice(j, 0, i);
+                speedsArray.splice(j, 0, enemyParty[i].speed);
             }
-            //Assign new speed and index to the first index of the arrays
-            speedsArray[0] = enemyParty[i - party.length].speed;
-            turnOrderArray[0] = i;
         }
-        //If speed is not greater than the first element
-        else {
-            //Check if the speed is higher then any speed in the array
-            for (let j = 0; j < speedsArray.length; j++) {
-                //If speed is higher than another speed, move over all the following elements and insert the new speed and index
-                if (enemyParty[i - party.length].speed > speedsArray[j]) {
-                    for (let m = speedsArray.length + 1; m > j; m--) {
-                        speedsArray[m] = speedsArray[m - 1];
-                        turnOrderArray[m] = turnOrderArray[m - 1];
-                    }
-                    speedsArray[j] = enemyParty[i - party.length].speed;
-                    turnOrderArray[j] = i;
-                }
-                else {
-                    //If the speed isn't higher than any speed, insert it at the end of the arrays
-                    speedsArray.push(enemyParty[i - party.length].speed);
-                    turnOrderArray.push(i);
-                }
-            }
+        if (speedsArray.length === 1) {
+            turnOrderArray.push(i);
+            speedsArray.push(enemyParty[i].speed);
         }
     }
 }
-
 console.log(turnOrderArray);
