@@ -75,19 +75,30 @@ export class playerCharacter extends Entity {
         this.coldDefensse = currentEntity.coldDefense;
         this.energyDefense = currentEntity.energyDefense;
         this.psychicDefense = currentEntity.psychicDefense;
-        this.oureanDefense =currentEntity. oureanDefense;
+        this.oureanDefense =currentEntity.oureanDefense;
         this.blockChance = currentEntity.blockChance;
         this.dodgeChance = currentEntity.dodgeChance;
         this.skills = currentEntity.skills;
         this.species = currentEntity.species;
         this.armor = new Armor(currentEntity.armorName);
         this.weapon = new Weapon(currentEntity.weaponName);
+
+        if (currentEntity.treancy === true) {
+            this.treancy = true;
+        }
+
+        if (currentEntity.chronomancy === true) {
+            this.chronomancy = true;
+        }
+
         console.log(this); //debugging
 
     }
     species: string;
     armor: Armor;
     weapon: Weapon;
+    treancy: boolean = false;
+    chronomancy: boolean = false;
 }
 
 interface entityInterface {
@@ -114,4 +125,6 @@ interface playerCharacterInterface extends entityInterface {
     species: string;
     armorName: string;
     weaponName: string;
+    treancy?: boolean;
+    chronomancy?: boolean;
 }

@@ -56,6 +56,11 @@ fleeBox.addEventListener("click", (e) => {
     window.location.href = "../html/town.html";
 })
 
+//Adding some enemies
+for (let i = 0; i < 5; i++) {
+    enemyParty.push(new entities.Entity("Bandit"));
+}
+console.log(enemyParty);
 
 //Interfaces to associate player and enemy objects with their respective battle boxes
 interface playerBattleBoxInterface extends HTMLElement {
@@ -114,15 +119,19 @@ for (let i = 0; i < (party.length + enemyParty.length); i++) {
     //Does the same logic as above, but doesn't have or need the first element check
     else {
         for (let j = 0; j < speedsArray.length; j++) {
-            if (enemyParty[i].speed >= speedsArray[i]) {
+            if (enemyParty[i - party.length].speed >= speedsArray[j]) {
                 turnOrderArray.splice(j, 0, i);
-                speedsArray.splice(j, 0, enemyParty[i].speed);
+                speedsArray.splice(j, 0, enemyParty[i - party.length].speed);
+                break;
             }
         }
-        if (speedsArray.length === 1) {
+        if (speedsArray.length === i) {
             turnOrderArray.push(i);
-            speedsArray.push(enemyParty[i].speed);
+            speedsArray.push(enemyParty[i - party.length].speed);
         }
     }
 }
+
+console.log(speedsArray);
+
 console.log(turnOrderArray);
